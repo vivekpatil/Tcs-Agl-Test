@@ -20,7 +20,9 @@ import { PetsPipe } from './pets.pipe';
     AppRoutingModule,
     HttpClientModule
   ],
-  
+  providers: [ 
+    HttpClientModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

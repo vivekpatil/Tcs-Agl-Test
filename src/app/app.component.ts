@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ApiService } from 'src/app/api.service';
 import {IPerson} from 'src/app/core/models/Person.interface'
 import {IGenderPet} from 'src/app/core/models/GenderPet.interface'
-import { Pipe, PipeTransform } from '@angular/core';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
