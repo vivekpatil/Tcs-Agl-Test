@@ -15,13 +15,12 @@ export class AppComponent {
   PersonData: any[];
   genderPets: Array<IGenderPet> = [];
   genders: string[];
-  ngOnInit(): void {
+  ngOnInit(): any {
     this.apiService.getData().subscribe((data)=>{
-         console.log(data);
          this.PersonData = data as IPerson[];
          this.PersonData.forEach(person => {
           var PersonGender = person.gender;
-          var pets = person.pets?.filter(x=>x.type=="Cat");
+          var pets = this.GetCatsList(person);
             if(pets != undefined)
             {
               pets.forEach(pet => {
@@ -29,11 +28,20 @@ export class AppComponent {
                 this.genderPets.push(genPet);
               });
             }
+            else
+            {
+              return;
+            }
         });
         this.genderPets.sort((a,b) => (a.pet.localeCompare(b.pet)));
         this.genderPets.sort((a,b) => (a.gender > b.gender ? -1 : 1));
         this.genders = this.genderPets.map(x=>x.gender);
-    }); 
+    });
+    return "success"; 
+  }
+
+  public GetCatsList(person: any) {
+    return person.pets?.filter(x => x.type == "Cat");
   }
 }
 

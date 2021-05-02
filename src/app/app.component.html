@@ -1,8 +1,5 @@
 <div *ngFor="let x of genders | gender">
 <b>{{x}}</b>
-<ul *ngFor="let y of genderPets | petsPipe:x">
-<li>{{y}}</li>
-</ul>
+<app-display [parentGender]=x [lstGenPets]= genderPets></app-display>
 </div>
-<div>
 <router-outlet></router-outlet>

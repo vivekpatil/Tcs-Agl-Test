@@ -6,13 +6,15 @@ import { CommonModule } from '@angular/common';
 import { AppComponent }  from './app.component';
 import { GenderPipe } from './gender.pipe';
 import { PetsPipe } from './pets.pipe';
+import { DisplayComponent } from './display/display.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     GenderPipe,
-    PetsPipe
+    PetsPipe,
+    DisplayComponent
   ],
   imports: [
     CommonModule,
